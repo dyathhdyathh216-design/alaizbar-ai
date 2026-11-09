@@ -1,1 +1,121 @@
 
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ALAIZBAR AI</title>
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;
+ font-family:Arial,sans-serif;
+ background:#090d1b;
+ color:white;
+}
+header{
+ padding:22px;
+ display:flex;
+ justify-content:space-between;
+ border-bottom:1px solid #293044;
+}
+.logo{font-size:23px;font-weight:bold;color:#8b7cff}
+main{padding:25px;max-width:750px;margin:auto}
+.hero{text-align:center;padding:45px 5px}
+h1{font-size:35px}
+h1 span{color:#8b7cff}
+p{color:#b5bdd0;line-height:1.8}
+.card{
+ background:#151c30;
+ border:1px solid #303951;
+ padding:20px;
+ border-radius:15px;
+ margin:18px 0;
+}
+textarea{
+ width:100%;height:110px;
+ background:#090d1b;color:white;
+ border:1px solid #414a65;
+ border-radius:10px;padding:12px;
+ font-size:16px;
+}
+button{
+ background:#725cff;color:white;
+ border:0;padding:13px 20px;
+ border-radius:9px;font-size:16px;
+ cursor:pointer;margin-top:12px;
+}
+button:hover{background:#927fff}
+#result{
+ white-space:pre-wrap;
+ background:#090d1b;
+ padding:15px;border-radius:10px;
+ margin-top:15px;line-height:1.8;
+}
+footer{text-align:center;padding:30px;color:#929bb1}
+</style>
+</head>
+<body>
+<header>
+ <div class="logo">ALAIZBAR AI ✨</div>
+ <div>My Creative Studio</div>
+</header>
+<main>
+ <section class="hero">
+  <h1>مرحباً بك في <span>ALAIZBAR AI</span></h1>
+  <p>استوديو الإبداع الذكي الخاص بك. اكتب فكرتك وابدأ الإبداع!</p>
+ </section>
+
+ <div class="card">
+  <h2>✍️ مساعد كتابة الأفكار</h2>
+  <p>اكتب موضوعاً وسنساعدك في تطوير فكرتك.</p>
+  <textarea id="idea" placeholder="اكتب فكرتك هنا..."></textarea>
+  <button onclick="generate()">إنشاء فكرة</button>
+  <div id="result"></div>
+  <button onclick="copyResult()">نسخ النتيجة</button>
+ </div>
+
+ <div class="card">
+  <h2>🎨 مولّد أفكار الصور</h2>
+  <p>احصل على وصف إبداعي لصورة تريد تصميمها.</p>
+  <textarea id="picture" placeholder="مثلاً: مدينة مستقبلية..."></textarea>
+  <button onclick="pictureIdea()">إنشاء وصف</button>
+  <div id="pictureResult"></div>
+ </div>
+
+ <div class="card">
+  <h2>🚀 خدماتنا</h2>
+  <p>• كتابة الأفكار والنصوص</p>
+  <p>• أوصاف الصور الإبداعية</p>
+  <p>• المساعدة في صناعة المحتوى</p>
+  <p>• أدوات الذكاء الاصطناعي</p>
+ </div>
+</main>
+<footer>
+ ALAIZBAR AI © 2026
+</footer>
+
+<script>
+function generate(){
+ let v=document.getElementById("idea").value.trim();
+ if(!v){alert("اكتب فكرتك أولاً");return}
+ document.getElementById("result").textContent=
+ "فكرتك: "+v+
+ "\n\nخطوات تطوير الفكرة:\n1. حدد الهدف الرئيسي.\n2. اختر الجمهور المناسب.\n3. اكتب خطة بسيطة.\n4. ابدأ بتنفيذ فكرتك.";
+}
+function pictureIdea(){
+ let v=document.getElementById("picture").value.trim();
+ if(!v){alert("اكتب وصف الصورة أولاً");return}
+ document.getElementById("pictureResult").textContent=
+ "وصف الصورة المقترح: "+v+
+ "، تصميم رقمي احترافي، تفاصيل واضحة، إضاءة سينمائية، ألوان متناسقة، جودة عالية.";
+}
+function copyResult(){
+ let v=document.getElementById("result").textContent;
+ if(!v){alert("أنشئ نتيجة أولاً");return}
+ navigator.clipboard.writeText(v).then(()=>alert("تم النسخ"));
+}
+</script>
+</body>
+</html>
+
